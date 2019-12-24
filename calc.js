@@ -44,6 +44,7 @@ controls.forEach(node => {
 
         if (node.id.startsWith("eq")) {
             operate();
+            
             // Call the operate function
             // If pressed after an operation, when the display is empty, or when dividing by zero, throw an error
         }
@@ -52,9 +53,12 @@ controls.forEach(node => {
 
 function operate() {
     if (!arg2 && arg1) {
-        solution = arg1;
+        (op) ? (solution = "ERR") : (solution = arg1);
         displayCurrent = solution.toString();
         display.textContent = displayCurrent;
+        arg1 = arg2 = op = solution = "";
+        wasEvaluated = true;
+        return;
     }
 
     arg1 = parseFloat(arg1);
@@ -65,7 +69,7 @@ function operate() {
             if (!(arg2 === 0)) {
                 solution = arg1 / arg2;
             } else {
-                solution = "ERR CANNOT DIVIDE BY 0";
+                solution = "CANNOT DIVIDE BY 0";
             }
             break;
         case "*":
