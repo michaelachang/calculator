@@ -52,11 +52,12 @@ controls.forEach(node => {
         if (node.id.startsWith("del")) {
             if (!op) {
                 arg1 = arg1.slice(0, arg1.length - 1);
-                displayCurrent = arg1;
+                
             } else {
                 arg2 = arg2.slice(0, arg2.length - 1);
-                displayCurrent = arg2;
             }
+
+            displayCurrent = displayCurrent.slice(0, displayCurrent.length - 1);
             display.textContent = displayCurrent;
         }
     })
