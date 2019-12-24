@@ -17,9 +17,9 @@ controls.forEach(node => {
                     arg1 = "";
                     displayCurrent = "";
                 }
-                arg1 += node.textContent
+                arg1 += node.textContent;
             } else {
-                arg2 += node.textContent
+                arg2 += node.textContent;
             }
 
             updateDisplay(node);
@@ -47,6 +47,17 @@ controls.forEach(node => {
             
             // Call the operate function
             // If pressed after an operation, when the display is empty, or when dividing by zero, throw an error
+        }
+
+        if (node.id.startsWith("del")) {
+            if (!op) {
+                arg1 = arg1.slice(0, arg1.length - 1);
+                displayCurrent = arg1;
+            } else {
+                arg2 = arg2.slice(0, arg2.length - 1);
+                displayCurrent = arg2;
+            }
+            display.textContent = displayCurrent;
         }
     })
 })

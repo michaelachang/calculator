@@ -48,6 +48,15 @@ body, html {
     grid-row: row1-start / row1-end;
 }
 
+.controls-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+button#clear {
+    grid-column: 1 / 2;
+}
+
 .operations {
     display: grid;    
     grid-column: num-end / last-line;
