@@ -1,15 +1,19 @@
 const display = document.querySelector('#display p');
 var cDisplay = "";
 
+<<<<<<< HEAD
 var num1 = "";
 var num2 = "";
 var numSolution = "";
 var op = "";
 
+=======
+>>>>>>> 619f241307b3e0f5cfa8ec80bb09251b7967f2e1
 const controls = document.querySelectorAll('button');
 console.log(controls);
 
 controls.forEach((node) => {
+<<<<<<< HEAD
     node.addEventListener('click', function (e) {
         if (node.id.startsWith("num")) {
             if (op) {
@@ -31,11 +35,21 @@ controls.forEach((node) => {
             updateDisplay(node, 0);
         } else if (node.id.startsWith("eq")) {
             display.textContent = operate(op);
+=======
+    node.addEventListener('click', function(e) {
+        if (node.id.startsWith("num")) {
+            updateDisplay(node.id, 3);
+        } else if (node.id.startsWith("op")) {
+            updateDisplay(node.id, 2);
+        } else if (node.id.startsWith("clear")) {
+            updateDisplay(node.id, 0);
+>>>>>>> 619f241307b3e0f5cfa8ec80bb09251b7967f2e1
         }
     });
     console.log(node.id);
 })
 
+<<<<<<< HEAD
 function updateDisplay(node, start) {
     cDisplay = start > 0 ? (cDisplay + node.textContent) : "";
     display.textContent = cDisplay;
@@ -62,4 +76,9 @@ function operate(op) {
     num2 = "";
     op = "";
     return numSolution;
+=======
+function updateDisplay(id, start) {
+    cDisplay = start > 0 ? (cDisplay + id.slice(start)) : "";
+    display.textContent = cDisplay;
+>>>>>>> 619f241307b3e0f5cfa8ec80bb09251b7967f2e1
 }
