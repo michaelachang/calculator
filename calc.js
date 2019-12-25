@@ -29,8 +29,20 @@ controls.forEach(node => {
         }
 
         if (node.id.startsWith("op")) {
-            (!op) ? (op += node.id.slice(2)) : (operate());
-            updateDisplay(node);
+            if (op) { operate(); 
+            } else {
+                if (arg1) {
+                    op += node.id.slice(2)
+                    updateDisplay(node);
+                } else {
+                    solution = "ERR";
+                    displayCurrent = solution.toString();
+                    display.textContent = displayCurrent;
+                    arg2 = op = solution = "";
+                    wasEvaluated = true;
+                    return;
+                }
+            }
             
             // Store operator in variable
             // If expression was previously executed, apply operation to resulting value
@@ -65,7 +77,7 @@ controls.forEach(node => {
 
 function operate() {
     if (!arg2 && arg1) {
-        (op) ? (solution = "ERR") : (solution = arg1);
+        (op) ? (solution = "ERR", arg1 = "") : (solution = arg1);
         displayCurrent = solution.toString();
         display.textContent = displayCurrent;
         arg2 = op = solution = "";
