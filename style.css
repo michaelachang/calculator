@@ -157,6 +157,31 @@ button:hover {
     padding: 10px 25px;
 }
 
+a {
+    text-decoration: none;
+    color: rgba(255, 248, 220, 0.877);
+    position:relative;
+    display:inline-block;
+    padding-bottom: 2px;
+}
+
+a::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background-color: rgba(255, 248, 220, 0.877);
+    -webkit-transition: width 0.2s;
+    transition: width 0.2s;
+}
+
+a:hover:after {
+    width:100%;
+}
+
 /* MEDIA QUERIES */
 @media only screen and (max-width: 390px) {
     html, body {
